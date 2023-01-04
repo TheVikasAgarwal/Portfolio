@@ -22,8 +22,9 @@ export class Blog extends Component {
   mediumURL =
     "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@contactvix";
 
+  url="https://medium.com/@contactvix/latest?format=json"
   componentDidMount() {
-    Axios.get(this.mediumURL)
+    Axios.get(this.url)
 
       .then((data) => {
         console.log(data.data)
