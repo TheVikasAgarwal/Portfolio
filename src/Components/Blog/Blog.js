@@ -26,7 +26,7 @@ export class Blog extends Component {
     Axios.get(this.mediumURL)
 
       .then((data) => {
-        // console.log(data.data)
+        console.log(data.data)
         const avatar = data.data.feed.image;
         const profileLink = data.data.feed.link;
         const res = data.data.items; //This is an array with the content. No feed, no info about author etc..
