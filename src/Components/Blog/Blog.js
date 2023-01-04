@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import ShowBlog from "../ShowBlog/ShowBlog";
 import Spinner from "../Spinner/Spinner";
-
-
+import Particles from "react-tsparticles";
 export class Blog extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +20,7 @@ export class Blog extends Component {
     };
   }
   mediumURL =
-    "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mehulkothari05";
+    "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@contactvix";
 
   componentDidMount() {
     Axios.get(this.mediumURL)
@@ -83,16 +82,30 @@ export class Blog extends Component {
     return (
       <div className="container">
         <div className="row">
-          {/* {this.state.item.map((post, index) => (
-          <ShowBlog key={index} {...post} {...this.state.profile} {...index} />
-        ))} */}
-
           {post}
         </div>
-
       </div>
     );
   }
 }
 
 export default Blog;
+
+const styleParams = {
+  particles: {
+    number: {
+      value: 100,
+    },
+    size: {
+      value: 5,
+    },
+  },
+  interactivity: {
+    events: {
+      onhover: {
+        enable: true,
+        mode: "repulse",
+      },
+    },
+  },
+};

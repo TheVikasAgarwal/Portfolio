@@ -33,7 +33,6 @@ class Layout extends Component {
                     {this.props.children}
                 </main>
                <div className={`hide  container ${classes.nopadd}`}>
-               {/* <NavCategory/> */}
                </div>
                
                 

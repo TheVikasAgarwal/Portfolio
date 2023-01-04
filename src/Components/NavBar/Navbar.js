@@ -7,21 +7,15 @@ function Navbar(props) {
       <ul className="ullist">
         <li>
           <NavLink exact={true} to="/" onClick={props.clicked}>
-            Home
+            Blogs
           </NavLink>{" "}
         </li>
-        <li>
+        {/* <li>
           {" "}
           <NavLink to="/about-author" onClick={props.clicked}>
-            About Author
+            About
           </NavLink>
-        </li>
-        <li>
-          {" "}
-          <NavLink to="/about-project" onClick={props.clicked}>
-            About this Project
-          </NavLink>
-        </li>
+        </li> */}
       </ul>
     </>
   );

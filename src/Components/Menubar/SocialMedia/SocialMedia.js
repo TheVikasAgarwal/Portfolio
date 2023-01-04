@@ -6,29 +6,25 @@ function SocialMedia() {
         <>
             <ul className="social">
                 <li>
-                    <a  href="https://github.com/mehulk05">
-                    <i className="fa fa-github"></i>
+                    <a  href="https://twitter.com/ByBooyah">
+                    <i className="fa fa-twitter"></i>
                     </a>
                 </li>
-
                 <li>
-                    <a  href="https://medium.com/@mehulkothari05">
+                    <a  href="https://medium.com/@contactvix">
                     <i className="fa fa-medium"></i>
                     </a>
                 </li>
-
                 <li>
-                    <a  href="https://www.instagram.com/mehul_kothari05/">
+                    <a  href="https://www.instagram.com/agilebooyah/">
                     <i className="fa fa-instagram"></i>
                     </a>
                 </li>
-
                 <li>
-                    <a  href="https://www.linkedin.com/in/mehul-kothari-765868126/">
+                    <a  href="https://www.linkedin.com/company/agilebybooyah/">
                     <i className="fa fa-linkedin"></i>
                     </a>
                 </li>
-               
             </ul>
         </>
     )

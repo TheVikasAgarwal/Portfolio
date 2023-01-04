@@ -9,18 +9,15 @@ import SocialMedia from '../SocialMedia/SocialMedia';
 import Navbar from '../../NavBar/Navbar';
 
 const toolbar = ( props ) => (
-    <header className={classes.Toolbar}>
+    <header className={classes.Toolbar} style={{alignContent: 'center'}}>
         <DrawerToggle clicked={props.drawerToggleClicked} />
-        <div className={classes.Logo}>
-            <Logo />
-           
+        <div style={{fontWeight: 900}}>
+            Vikas Agarwal
         </div>
-        <nav className={classes.forsp}>
+        {/* <nav className={classes.forsp} style={{marginLeft: 90}}>
         <Navbar/>
-        </nav>
-       
+        </nav> */}
         <nav className={classes.DesktopOnly}>
-            
             <SocialMedia/>
         </nav>
     </header>
