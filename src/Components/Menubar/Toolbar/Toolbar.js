@@ -10,7 +10,7 @@ import Navbar from '../../NavBar/Navbar';
 
 const toolbar = ( props ) => (
     <header className={classes.Toolbar} style={{alignContent: 'center'}}>
-        <DrawerToggle clicked={props.drawerToggleClicked} />
+        {/* <DrawerToggle clicked={props.drawerToggleClicked} /> */}
         <div style={{fontWeight: 900}}>
             Vikas Agarwal
         </div>
