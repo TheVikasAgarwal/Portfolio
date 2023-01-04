@@ -20,9 +20,7 @@ function ShowBlog(props, p) {
               rel="noopener noreferrer"
               target="_blank"
               style={{ backgroundImage: `url(${props.avtar})` }}
-            >
-              Written By Mehul
-            </a>
+            />
           </div>
         </div>
 
