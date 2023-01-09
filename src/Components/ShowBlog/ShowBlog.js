@@ -28,7 +28,7 @@ function ShowBlog(props, p) {
           <h5 className="card-title">
             
             <Link
-              to={props.title}
+              to={props.blogId.toString()}
               className={c.textfiordblue}
 
             >
