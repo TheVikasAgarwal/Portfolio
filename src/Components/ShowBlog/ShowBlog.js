@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import c from "./ShowBlog.module.css";
 import ToText from "../../utils/ToText";
 import moment from "moment";
 import { Link, withRouter } from "react-router-dom";
+import LottieBlog from '../Lottie/lottie'
 
 function ShowBlog(props, p) {
- 
+
+  const [showAnimation, setShowAnimation] = useState(false);
+
   return (
-    <div className={`col-md-4 col-sm-6 col-xs-12 ${c.grid}`}>
+    <div
+      className={`col-md-4 col-sm-6 col-xs-12 ${c.grid}`}
+      onMouseEnter={() => setShowAnimation(true)}
+      onMouseLeave={() => setShowAnimation(false)}>
       <div className={c.cardsmall}>
         <div
           className={c.cardpost__image}
           style={{ backgroundImage: `url(${props.thumbnail})` }}
         >
-
+          {showAnimation && <LottieBlog />}
           <div className={c.authorimg}>
             <a
               href={props.profileurl}
@@ -24,9 +30,10 @@ function ShowBlog(props, p) {
           </div>
         </div>
 
+
         <div className="card-body">
           <h5 className="card-title">
-            
+
             <Link
               to={props.blogId.toString()}
               className={c.textfiordblue}

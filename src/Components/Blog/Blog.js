@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Axios from "axios";
 import ShowBlog from "../ShowBlog/ShowBlog";
 import Spinner from "../Spinner/Spinner";
-import Particles from "react-tsparticles";
 export class Blog extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,7 @@ export class Blog extends Component {
     };
   }
   mediumURL = "https://booyah-training-backend.azurewebsites.net/api/Blog/getAllBlogs";
-    // "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@contactvix";
+  // "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@contactvix";
 
   componentDidMount() {
     Axios.get(this.mediumURL)
@@ -54,13 +53,13 @@ export class Blog extends Component {
         console.log(data, res);
       })
       .catch((e) => {
-        
+
         console.log(e);
         this.setState({ error: e.toJSON() })
       });
   }
   render() {
-   
+
     let post
 
     if (this.state.item) {
