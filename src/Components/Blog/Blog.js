@@ -19,8 +19,8 @@ export class Blog extends Component {
       error: null
     };
   }
-  mediumURL =
-    "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@contactvix";
+  mediumURL = "https://booyah-training-backend.azurewebsites.net/api/Blog/getAllBlogs";
+    // "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@contactvix";
 
   componentDidMount() {
     Axios.get(this.mediumURL)
@@ -30,7 +30,8 @@ export class Blog extends Component {
         const avatar = data.data.feed.image;
         const profileLink = data.data.feed.link;
         const res = data.data.items; //This is an array with the content. No feed, no info about author etc..
-        const posts = res.filter(item => item.categories.length > 0);
+        const posts = res;
+        //  res.filter(item => item.categories.length > 0);
 
         const title = data.data.feed.title;
 
@@ -53,8 +54,9 @@ export class Blog extends Component {
         console.log(data, res);
       })
       .catch((e) => {
-        this.setState({ error: e.toJSON() })
+        
         console.log(e);
+        this.setState({ error: e.toJSON() })
       });
   }
   render() {
