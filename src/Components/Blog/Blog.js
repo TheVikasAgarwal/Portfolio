@@ -19,8 +19,7 @@ export class Blog extends Component {
       error: null
     };
   }
-  mediumURL ="http://localhost:10595/api/Blog/getAllBlogs";
-  //  "https://booyah-training-backend.azurewebsites.net/api/Blog/getAllBlogs";
+  mediumURL = "https://booyah-training-backend.azurewebsites.net/api/Blog/getAllBlogs";
   // "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@contactvix";
 
   componentDidMount() {
