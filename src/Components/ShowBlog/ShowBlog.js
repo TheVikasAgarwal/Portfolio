@@ -19,7 +19,7 @@ function ShowBlog(props, p) {
           className={c.cardpost__image}
           style={{ backgroundImage: `url(${props.thumbnail})` }}
         >
-          {showAnimation && <LottieBlog />}
+          {/* {showAnimation && <LottieBlog />} */}
           <div className={c.authorimg}>
             <a
               href={props.profileurl}
