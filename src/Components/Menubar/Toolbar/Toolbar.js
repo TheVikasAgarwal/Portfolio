@@ -12,7 +12,10 @@ const toolbar = ( props ) => (
     <header className={classes.Toolbar} style={{alignContent: 'center'}}>
         {/* <DrawerToggle clicked={props.drawerToggleClicked} /> */}
         <div style={{fontWeight: 900}}>
+        <a href='/' style={{color:'black', fontStyle:'normal'}} >
+
             Vikas Agarwal
+        </a>
         </div>
         {/* <nav className={classes.forsp} style={{marginLeft: 90}}>
         <Navbar/>

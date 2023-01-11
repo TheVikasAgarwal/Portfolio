@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import ShowBlog from "../ShowBlog/ShowBlog";
 import Spinner from "../Spinner/Spinner";
+import Tabs from "../Tabs";
 export class Blog extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,8 @@ export class Blog extends Component {
       error: null
     };
   }
-  mediumURL = "https://booyah-training-backend.azurewebsites.net/api/Blog/getAllBlogs";
+  mediumURL ="http://localhost:10595/api/Blog/getAllBlogs";
+  //  "https://booyah-training-backend.azurewebsites.net/api/Blog/getAllBlogs";
   // "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@contactvix";
 
   componentDidMount() {
@@ -60,20 +62,31 @@ export class Blog extends Component {
   }
   render() {
 
-    let post
+    let kanbanPost;
+    let scrumPost;
 
     if (this.state.item) {
-      post = this.state.item.map((post, index) => (
+      kanbanPost = this.state.item.filter(x => x.category === "Kanban").map((post, index) => (
+        <ShowBlog key={index} {...post} {...this.state.profile} {...index} />
+      ))
+      scrumPost = this.state.item.filter(x => x.category === "Scrum").map((post, index) => (
         <ShowBlog key={index} {...post} {...this.state.profile} {...index} />
       ))
     }
     if (this.state.isloading) {
-      post = <Spinner />
+      kanbanPost = <Spinner />
+      scrumPost = <Spinner />
     }
     if (this.state.error) {
       let error = this.state.error.code ? this.state.error.code : this.state.error.name;
       let errorMsg = this.state.error.message;
-      post = (
+      kanbanPost = (
+        <>
+          <h2 className="red center1">{error}</h2>
+          <p className="errorMessage center1">{errorMsg}</p>
+        </>
+      );
+      scrumPost = (
         <>
           <h2 className="red center1">{error}</h2>
           <p className="errorMessage center1">{errorMsg}</p>
@@ -81,11 +94,26 @@ export class Blog extends Component {
       );
     }
     return (
-      <div className="container">
+      <div>
+      <Tabs>
+        <div label="Kanban">
         <div className="row">
-          {post}
+          {kanbanPost}
+         </div>
         </div>
-      </div>
+        <div label="Scrum">
+        <div className="row">
+          {scrumPost}
+         </div>
+        </div>
+        
+      </Tabs>
+    </div>
+      // <div className="container">
+      //   <div className="row">
+      //     {post}
+      //   </div>
+      // </div>
     );
   }
 }
