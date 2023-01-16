@@ -4,6 +4,7 @@ import ShowBlog from "../ShowBlog/ShowBlog";
 import Spinner from "../Spinner/Spinner";
 import Tabs from "../Tabs";
 import BasicTabs from '../MaterialTabs';
+import SkeletonListLoader from "../SkeletonLoader/ListLoader";
 export class Blog extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +27,6 @@ export class Blog extends Component {
 
   componentDidMount() {
     Axios.get(this.mediumURL)
-
       .then((data) => {
         console.log(data.data)
         const avatar = data.data.feed.image;
@@ -78,8 +78,8 @@ export class Blog extends Component {
       ))
     }
     if (this.state.isloading) {
-      kanbanPost = <Spinner />
-      scrumPost = <Spinner />
+      kanbanPost = <SkeletonListLoader />
+      scrumPost = <SkeletonListLoader />
     }
     if (this.state.error) {
       let error = this.state.error.code ? this.state.error.code : this.state.error.name;
@@ -110,7 +110,7 @@ export class Blog extends Component {
           }}>
         <BasicTabs setSelectedTab={this.handleChange} />
         <div style={{margin: 40}}>
-          <div className="row">
+          <div className="row" style={{justifyContent: 'center'}}>
               {this.state.selectedTab == 0 ? kanbanPost : scrumPost}
           </div>
         </div>

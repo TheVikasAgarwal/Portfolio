@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import c from "./SingleBlog.module.css";
 import Spinner from "../Spinner/Spinner";
+import SkeletonSingleLoader from "../SkeletonLoader/SingleLoader";
 
 export class SingleBlog extends Component {
  
@@ -60,7 +61,7 @@ export class SingleBlog extends Component {
      )
     }
     if(this.state.isloading){
-      post = <Spinner/>
+      post = <SkeletonSingleLoader />
     }
     if(this.state.error){
    let   error = this.state.error.code ? this.state.error.code : this.state.error.name;
