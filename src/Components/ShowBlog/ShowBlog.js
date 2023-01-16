@@ -14,7 +14,7 @@ function ShowBlog(props, p) {
       className={`col-md-4 col-sm-6 col-xs-12 ${c.grid}`}
       onMouseEnter={() => setShowAnimation(true)}
       onMouseLeave={() => setShowAnimation(false)}>
-      <div className={c.cardsmall}>
+      <div className={c.cardsmall} >
         <div
           className={c.cardpost__image}
           style={{ backgroundImage: `url(${props.thumbnail})` }}
@@ -32,7 +32,7 @@ function ShowBlog(props, p) {
 
 
         <div className="card-body">
-          <h5 className="card-title">
+          <h5 className="card-title" style={{height: 50}}>
 
             <Link
               to={props.blogId.toString()}
@@ -43,7 +43,7 @@ function ShowBlog(props, p) {
             </Link>
           </h5>
 
-          <p className={c.cardText}>{`${ToText(
+          <p className={c.cardText} style={{height: 75}}>{`${ToText(
             props.description.substring(0, 1000)
           )}...`}</p>
           <br />

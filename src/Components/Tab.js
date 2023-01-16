@@ -26,9 +26,20 @@ class Tab extends Component {
     }
 
     return (
-      <li className={className} onClick={onClick}  style={{cursor:'pointer', width:'50%',
-       backgroundColor: activeTab ===label ? 'grey' : 'white', 
-       fontStyle:activeTab ===label ? 'italic' : 'normal'}} >
+      <li className={className} onClick={onClick}  
+        style={{
+          cursor:'pointer', 
+          width: 100,
+          backgroundColor: activeTab === label ? '#dfdfdf' : 'white', 
+          color: 'black',
+          textAlign: 'center',
+          borderWidth: 0.5,
+          // border: 'solid',
+          boderColor: '#dfdfdf',
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
+          marginLeft: label == 'Scrum' ? 30 : 0
+        }} >
         {label}
       </li>
     );

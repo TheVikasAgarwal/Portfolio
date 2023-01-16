@@ -3,6 +3,7 @@ import Axios from "axios";
 import ShowBlog from "../ShowBlog/ShowBlog";
 import Spinner from "../Spinner/Spinner";
 import Tabs from "../Tabs";
+import BasicTabs from '../MaterialTabs';
 export class Blog extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,8 @@ export class Blog extends Component {
       },
       item: [],
       isloading: true,
-      error: null
+      error: null,
+      selectedTab: 0
     };
   }
   mediumURL = "https://booyah-training-backend.azurewebsites.net/api/Blog/getAllBlogs";
@@ -59,6 +61,9 @@ export class Blog extends Component {
         this.setState({ error: e.toJSON() })
       });
   }
+  
+  handleChange = (val) => { this.setState({ selectedTab: val })}
+
   render() {
 
     let kanbanPost;
@@ -92,27 +97,24 @@ export class Blog extends Component {
         </>
       );
     }
+
     return (
-      <div>
-      <Tabs>
-        <div label="Kanban">
-        <div className="row">
-          {kanbanPost}
-         </div>
+      <div style={{ 
+          borderWidth: 0.5, 
+          border: '#dfdfdf', 
+          borderStyle: 'double', 
+          marginLeft: 100, 
+          marginRight: 100, 
+          marginTop: 100,
+          borderRadius: 10
+          }}>
+        <BasicTabs setSelectedTab={this.handleChange} />
+        <div style={{margin: 40}}>
+          <div className="row">
+              {this.state.selectedTab == 0 ? kanbanPost : scrumPost}
+          </div>
         </div>
-        <div label="Scrum">
-        <div className="row">
-          {scrumPost}
-         </div>
-        </div>
-        
-      </Tabs>
-    </div>
-      // <div className="container">
-      //   <div className="row">
-      //     {post}
-      //   </div>
-      // </div>
+      </div>
     );
   }
 }
